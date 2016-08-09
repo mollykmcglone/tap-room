@@ -1,4 +1,5 @@
 import { Component } from 'angular2/core';
+import {  } from 'angular2/core';
 import { Keg } from './keg.model';
 
 @Component({
@@ -6,8 +7,8 @@ import { Keg } from './keg.model';
   inputs:['keg'],
   template:`
   <div>
-    <button type="submit" class="btn btn-warning" (click)="minusOne()"/>
-    <label>{{ keg.name }}, {{ keg.brand }}, {{ keg.price }}, {{ keg.alcoholContent}}%, {{ keg.pintsRemaining}} pints remaining</label>
+    <br><button type="submit" class="btn btn-warning" (click)="minusOne()">Pint Sold</button>
+    <label>{{ keg.name }}, {{ keg.brand }}, {{ keg.price | currency:'USD':true}}, {{ keg.alcoholContent}}%, {{ keg.pintsRemaining}} pints remaining</label>
   </div>
   `
 })
