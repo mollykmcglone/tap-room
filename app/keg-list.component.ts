@@ -3,7 +3,7 @@ import { KegComponent } from './keg.component';
 import { Keg } from './keg.model';
 import { EditKegDetailsComponent } from './edit-keg-details.component';
 import { NewKegComponent } from './new-keg.component';
-import { PintsRemainingPipe} from './pintsRemaining.pipe';
+import { PintsRemainingPipe } from './pints-remaining.pipe';
 
 @Component({
   selector: 'keg-list',
@@ -17,6 +17,7 @@ import { PintsRemainingPipe} from './pintsRemaining.pipe';
     <option value="all" selected="selected">Show all kegs</option>
     <option value="less than 10 pints">Show kegs with 10 pints or less remaining</option>
     <option value="more than 10 pints">Show kegs with more than 10 pints remaining</option>
+  </select>
   <keg-display *ngFor="#currentKeg of kegList | pintsRemaining:filterPintsRemaining" (click)="kegClicked(currentKeg)" [class.selected]="currentKeg === selectedKeg" [keg]="currentKeg">
   </keg-display>
   <edit-keg-details *ngIf="selectedKeg" [keg]="selectedKeg">
